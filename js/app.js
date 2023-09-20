@@ -7,25 +7,6 @@ if (bar) {
         });
 }
 
-const wrapper = document.querySelector(".wrapper"),
-  image = document.querySelector(".image"),
-  images = document.querySelectorAll(".img"),
-  buttons = document.querySelectorAll(".buttons");
-
-let imageIndex = 1,
-    intervalID;
-
-const autoSlide = () => {
-    intervalID = setInterval(() => slideImage(++imageIndex), 2000);
-};
-
-autoSlide();
-
-const slideImage = () => {
-    imageIndex = imageIndex === images.length ? 0 : imageIndex < 0 ? images.length - 1: imageIndex;
-    image.style.transform = 'translate(-${imageIndex * 100}%)'
-}
-
 const data = {
     currentUser: {
       image: {
@@ -215,18 +196,18 @@ const data = {
       commentNode.querySelector(".delete").addEventListener("click", () => {
         promptDel(commentObject);
       });
-      commentNode.querySelector(".edit").addEventListener("click", (e) => {
-        const path = e.path[3].querySelector(".c-body");
-        if (
-          path.getAttribute("contenteditable") == false ||
-          path.getAttribute("contenteditable") == null
-        ) {
-          path.setAttribute("contenteditable", true);
-          path.focus()
-        } else {
-          path.removeAttribute("contenteditable");
-        }
-      });
+      // commentNode.querySelector(".edit").addEventListener("click", (e) => {
+      //   const path = e.path[3].querySelector(".c-body");
+      //   if (
+      //     path.getAttribute("contenteditable") == false ||
+      //     path.getAttribute("contenteditable") == null
+      //   ) {
+      //     path.setAttribute("contenteditable", true);
+      //     path.focus()
+      //   } else {
+      //     path.removeAttribute("contenteditable");
+      //   }
+      // });
       return commentNode;
     }
     return commentNode;
