@@ -65,6 +65,10 @@ body {
   align-items: center;
 }
 
+#close {
+	display: none;
+}
+
 @media(max-width: 799px){
   #navbar{
     display: flex;
@@ -102,6 +106,7 @@ body {
 }
 
 #close {
+	display: initial;
   position: absolute;
   top: 30px;
   left: 30px;
@@ -156,37 +161,25 @@ body {
 	color: var(--black);
 }
 
-.form-control {
-	display: block;
-	width: 100%;
-	padding: 0.375rem 0.75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-radius: 0.25rem;
-	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+.contact {
+	margin: 100px auto;
+	width: 80%;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(/images/deli.png);
+	background-position: center;
+	background-size: cover;
+	border-radius: 10px;
+	text-align: center;
+	padding: 100px 0;
 }
 
-.form-control:focus {
-	border-color: #80bdff;
-	outline: 0;
-	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+.contact h1 {
+	color: var(--white);
+	margin-bottom: 40px;
+	padding: 0;
 }
 
-/* Optional: Add these styles for sizing variations */
-.form-control-lg {
-	padding: 0.5rem 1rem;
-	font-size: 1.25rem;
-	border-radius: 0.3rem;
-}
-
-.form-control-sm {
-	padding: 0.25rem 0.5rem;
-	font-size: 0.875rem;
-	border-radius: 0.2rem;
+.contact .btn {
+	margin: auto;
 }
 
 /* Footer */
@@ -264,12 +257,18 @@ body {
 
 /*responsive*/
 @media(max-width: 799px){
-  .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
-}
+	.contact h1{
+		font-size: 24px;
+	}
+	.footer-col{
+		width: 50%;
+		margin-bottom: 30px;
+	}
 }
 @media(max-width: 574px){
+	.contact {
+		font-size: 24px;
+	}
   .footer-col{
     width: 100%;
 }
@@ -289,13 +288,13 @@ body {
 	--prussian-blue: hsl(202, 72%, 15%);
 	--eerie-black: hsl(210, 11%, 15%);
 	--dark-orange: hsl(32, 100%, 50%);
-	--alice-blue: hsl(203, 100%, 97%);
+	--alice-blue: hsl(204, 100%, 97%);
 	--light-gray: hsl(0, 0%, 80%);
 	--indigo-dye: hsl(202, 64%, 26%);
 	--cultured-1: hsl(0, 0%, 94%);
 	--cultured-2: hsl(0, 0%, 95%);
 	--cultured-3: hsl(0, 0%, 95%);
-	--plutinum: hsl(0, 0%, 91%);
+	--plutinum: #e8e8e8;
 	--black_60: hsla(0, 0%, 0%, 0.6);
 	--white: hsl(0, 0%, 100%);
 	--black: hsl(0, 0%, 0%);
@@ -777,14 +776,6 @@ ion-icon { pointer-events: none; }
 
 .feature-card .card-text { margin-block: 20px 40px; }
 
-.feature-card .card-btn {
-	color: var(--prussian-blue);
-	font-size: 24px;
-	border: 2px solid var(--prussian-blue);
-	max-width: max-content;
-	margin-inline: auto;
-	padding: 10px 18px;
-}
   
 
 /*-----------------------------------*\

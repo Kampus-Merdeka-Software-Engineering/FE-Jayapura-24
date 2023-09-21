@@ -1,4 +1,5 @@
 const bar = document.getElementById('bar');
+const close = document.getElementById('close');
 const nav = document.getElementById('navbar');
 
 if (bar) {
@@ -7,11 +8,17 @@ if (bar) {
         });
 }
 
+if (close) {
+  close.addEventListener('click', () => {
+      nav.classList.remove('active');
+  });
+}
+
 const data = {
     currentUser: {
       image: {
-        png: "./images/avatars/image-juliusomo.png",
-        webp: "./images/avatars/image-juliusomo.webp",
+        png: "./images/avatars/fikri.jpg",
+        webp: "./images/avatars/fikri.webp",
       },
       username: "Fikri Maulana Setiawan",
     },
@@ -74,8 +81,8 @@ const data = {
             replyingTo: "Blandina Siti",
             user: {
               image: {
-                png: "./images/avatars/fikri-1.png",
-                webp: "./images/avatars/fikri-1.webp",
+                png: "./images/avatars/fikri.jpg",
+                webp: "./images/avatars/fikri.webp",
               },
               username: "Rizal Fanani",
             },
