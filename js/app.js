@@ -17,8 +17,8 @@ if (close) {
 const data = {
     currentUser: {
       image: {
-        png: "./images/avatars/fikri.jpg",
-        webp: "./images/avatars/fikri.webp",
+        png: "./images/avatars/6.png",
+        webp: "./images/avatars/6.webp",
       },
       username: "Fikri Maulana Setiawan",
     },
@@ -32,8 +32,8 @@ const data = {
         score: 12,
         user: {
           image: {
-            png: "./images/avatars/image-amyrobson.png",
-            webp: "./images/avatars/image-amyrobson.webp",
+            png: "./images/avatars/5.png",
+            webp: "./images/avatars/5.webp",
           },
           username: "Abraham Marco Suryadi",
         },
@@ -48,8 +48,8 @@ const data = {
             replyingTo: "Abraham Marco Suryadi",
             user: {
               image: {
-                png: "./images/avatars/image-ramsesmiron.png",
-                webp: "./images/avatars/image-ramsesmiron.webp",
+                png: "./images/avatars/3.png",
+                webp: "./images/avatars/3.webp",
               },
               username: "Ines Gayatri",
             },
@@ -65,8 +65,8 @@ const data = {
         score: 5,
         user: {
           image: {
-            png: "./images/avatars/image-maxblagun.png",
-            webp: "./images/avatars/image-maxblagun.webp",
+            png: "./images/avatars/4.png",
+            webp: "./images/avatars/4.webp",
           },
           username: "Blandina Siti",
         },
@@ -81,8 +81,8 @@ const data = {
             replyingTo: "Blandina Siti",
             user: {
               image: {
-                png: "./images/avatars/fikri.jpg",
-                webp: "./images/avatars/fikri.webp",
+                png: "./images/avatars/1.png",
+                webp: "./images/avatars/1.webp",
               },
               username: "Rizal Fanani",
             },
@@ -97,8 +97,8 @@ const data = {
             replyingTo: "Rizal Fanani",
             user: {
               image: {
-                png: "./images/avatars/image-juliusomo.png",
-                webp: "./images/avatars/image-juliusomo.webp",
+                png: "./images/avatars/2.png",
+                webp: "./images/avatars/2.webp",
               },
               username: "Vina Fariska",
             },
