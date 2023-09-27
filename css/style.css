@@ -198,7 +198,7 @@ body {
 }
 .footer-col{
    width: 25%;
-   padding: 0 15px;
+   padding: 10px 15px;
 }
 .footer-col h4{
 	font-size: 18px;
@@ -598,7 +598,7 @@ ion-icon { pointer-events: none; }
 
 .hero {
 	position: relative;
-	min-height: 100vh;
+	min-height: 99vh;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
