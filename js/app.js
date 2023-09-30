@@ -114,7 +114,7 @@ const data = {
     return children[1];
   }
   
-  const addComment = (body, parentId, replyTo = undefined) => {
+  const addComment = (username, body, parentId, replyTo = undefined) => {
     let commentParent =
       parentId === 0
         ? data.comments
@@ -130,7 +130,13 @@ const data = {
       replyingTo: replyTo,
       score: 0,
       replies: parent == 0 ? [] : undefined,
-      user: data.currentUser,
+      user: {
+        image: {
+          png: "./images/user.png",
+          webp: "./images/user.webp",
+        },
+        username,
+      },
     };
     commentParent.push(newComment);
     initComments();
@@ -170,8 +176,10 @@ const data = {
     const addedInput = appendFrag(inputNode, parent);
     addedInput.querySelector(".bu-primary").addEventListener("click", () => {
       let commentBody = addedInput.querySelector(".cmnt-input").value;
-      if (commentBody.length == 0) return;
-      addComment(commentBody, parentId, replyTo);
+      const inputUsername = document.querySelector('#username');
+      const valueUsername = inputUsername.value;
+      if (commentBody.length == 0 || valueUsername === 0) return;
+      addComment(valueUsername, commentBody, parentId, replyTo);
     });
   };
   
@@ -258,9 +266,12 @@ const data = {
   const cmntInput = document.querySelector(".reply-input");
   cmntInput.querySelector(".bu-primary").addEventListener("click", () => {
     let commentBody = cmntInput.querySelector(".cmnt-input").value;
-    if (commentBody.length == 0) return;
-    addComment(commentBody, 0);
+    const inputUsername = document.querySelector('#username');
+    const valueUsername = inputUsername.value;
+    if (commentBody.length == 0 || valueUsername.length === 0) return;
+    addComment(valueUsername, commentBody, 0);
     cmntInput.querySelector(".cmnt-input").value = "";
+    inputUsername.value = "";
   });
   
   // addComment("Hello ! It works !!",0);
