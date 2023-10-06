@@ -114,7 +114,7 @@ const data = {
     return children[1];
   }
   
-  const addComment = (username, body, parentId, replyTo = undefined) => {
+  const addComment = (body, parentId, replyTo = undefined) => {
     let commentParent =
       parentId === 0
         ? data.comments
@@ -130,13 +130,7 @@ const data = {
       replyingTo: replyTo,
       score: 0,
       replies: parent == 0 ? [] : undefined,
-      user: {
-        image: {
-          png: "./images/user.png",
-          webp: "./images/user.webp",
-        },
-        username,
-      },
+      user: data.currentUser,
     };
     commentParent.push(newComment);
     initComments();
@@ -176,10 +170,8 @@ const data = {
     const addedInput = appendFrag(inputNode, parent);
     addedInput.querySelector(".bu-primary").addEventListener("click", () => {
       let commentBody = addedInput.querySelector(".cmnt-input").value;
-      const inputUsername = document.querySelector('#username');
-      const valueUsername = inputUsername.value;
-      if (commentBody.length == 0 || valueUsername === 0) return;
-      addComment(valueUsername, commentBody, parentId, replyTo);
+      if (commentBody.length == 0) return;
+      addComment(commentBody, parentId, replyTo);
     });
   };
   
@@ -211,18 +203,19 @@ const data = {
       commentNode.querySelector(".delete").addEventListener("click", () => {
         promptDel(commentObject);
       });
-      // commentNode.querySelector(".edit").addEventListener("click", (e) => {
-      //   const path = e.path[3].querySelector(".c-body");
-      //   if (
-      //     path.getAttribute("contenteditable") == false ||
-      //     path.getAttribute("contenteditable") == null
-      //   ) {
-      //     path.setAttribute("contenteditable", true);
-      //     path.focus()
-      //   } else {
-      //     path.removeAttribute("contenteditable");
-      //   }
-      // });
+      /*commentNode.querySelector(".edit").addEventListener("click", (e) => {
+        const path = e.path[3].querySelector(".c-body");
+        if (
+          path.getAttribute("contenteditable") == false ||
+          path.getAttribute("contenteditable") == null
+        ) {
+          path.setAttribute("contenteditable", true);
+          path.focus()
+        } else {
+          path.removeAttribute("contenteditable");
+        }
+        
+      });*/
       return commentNode;
     }
     return commentNode;
@@ -266,12 +259,9 @@ const data = {
   const cmntInput = document.querySelector(".reply-input");
   cmntInput.querySelector(".bu-primary").addEventListener("click", () => {
     let commentBody = cmntInput.querySelector(".cmnt-input").value;
-    const inputUsername = document.querySelector('#username');
-    const valueUsername = inputUsername.value;
-    if (commentBody.length == 0 || valueUsername.length === 0) return;
-    addComment(valueUsername, commentBody, 0);
+    if (commentBody.length == 0) return;
+    addComment(commentBody, 0);
     cmntInput.querySelector(".cmnt-input").value = "";
-    inputUsername.value = "";
   });
   
   // addComment("Hello ! It works !!",0);

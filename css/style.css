@@ -1526,7 +1526,7 @@ button:hover{
 
 .delete{
 	color: var(--Soft-Red);
-	/*display: none;*/
+	display: none;
 }
 
 .control-icon{
