@@ -460,7 +460,7 @@ ion-icon { pointer-events: none; }
 .h1,
 .h2,
 .h3 {
-	font-family: var(--ff-oswald);
+	font-family: var(--ff-poppins);
 	line-height: 1.2;
 	font-weight: var(--fw-600);
 }
@@ -965,7 +965,7 @@ ion-icon { pointer-events: none; }
 
 	.container { max-width: 960px; }
 
-	.h1 { --fs-3: 10rem; }
+	.h1 { --fs-3: 9.5rem; }
 
 	.section-subtitle { --fs-6: 3rem; }
 
@@ -1059,7 +1059,7 @@ ion-icon { pointer-events: none; }
 
 .container { max-width: 1180px; }
 
-.h1 { --fs-3: 12rem; }
+.h1 { --fs-3: 9.5rem; }
 
 
 
@@ -1199,7 +1199,7 @@ ion-icon { pointer-events: none; }
   .container { padding-inline: 15px; }
   
   .h2,
-  .h3 { font-family: var(--ff-source-sans-pro); }
+  .h3 { font-family: var(--ff-poppins); }
   
   .btn {
 	background-image: var(--gradient-2);
