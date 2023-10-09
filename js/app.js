@@ -20,7 +20,7 @@ const data = {
         png: "./images/avatars/6.png",
         webp: "./images/avatars/6.webp",
       },
-      username: "Fikri Maulana Setiawan",
+      username: ('.username'),
     },
     comments: [
       {
@@ -110,7 +110,6 @@ const data = {
   function appendFrag(frag, parent) {
     var children = [].slice.call(frag.childNodes, 0);
     parent.appendChild(frag);
-    //console.log(children);
     return children[1];
   }
   

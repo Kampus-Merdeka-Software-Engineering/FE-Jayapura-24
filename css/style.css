@@ -106,7 +106,7 @@ body {
 }
 
 #close {
-	display: initial;
+  display: initial;
   position: absolute;
   top: 30px;
   left: 30px;
