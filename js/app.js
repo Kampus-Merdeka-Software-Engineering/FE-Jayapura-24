@@ -202,19 +202,6 @@ const data = {
       commentNode.querySelector(".delete").addEventListener("click", () => {
         promptDel(commentObject);
       });
-      /*commentNode.querySelector(".edit").addEventListener("click", (e) => {
-        const path = e.path[3].querySelector(".c-body");
-        if (
-          path.getAttribute("contenteditable") == false ||
-          path.getAttribute("contenteditable") == null
-        ) {
-          path.setAttribute("contenteditable", true);
-          path.focus()
-        } else {
-          path.removeAttribute("contenteditable");
-        }
-        
-      });*/
       return commentNode;
     }
     return commentNode;
@@ -222,14 +209,12 @@ const data = {
   
   const appendComment = (parentNode, commentNode, parentId) => {
     const bu_reply = commentNode.querySelector(".reply");
-    // parentNode.appendChild(commentNode);
     const appendedCmnt = appendFrag(commentNode, parentNode);
     const replyTo = appendedCmnt.querySelector(".usr-name").textContent;
     bu_reply.addEventListener("click", () => {
       if (parentNode.classList.contains("replies")) {
         spawnReplyInput(parentNode, parentId, replyTo);
       } else {
-        //console.log(appendedCmnt.querySelector(".replies"));
         spawnReplyInput(
           appendedCmnt.querySelector(".replies"),
           parentId,
@@ -262,6 +247,4 @@ const data = {
     addComment(commentBody, 0);
     cmntInput.querySelector(".cmnt-input").value = "";
   });
-  
-  // addComment("Hello ! It works !!",0);
   
