@@ -27,7 +27,7 @@ const data = {
         parent: 0,
         id: 1,
         content:
-          "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
+          "Saya kira hanya iming-iming saja pengirimannya akan cepat, ternyata beneran secepat itu. Terimakasih Logist.",
         createdAt: "1 month ago",
         score: 12,
         user: {
@@ -42,7 +42,7 @@ const data = {
             parent: 2,
             id: 1,
             content:
-              "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+              "Benar!. saya pikir juga begitu, malah ini lebih cepat dari estimasi!",
             createdAt: "3 week ago",
             score: 4,
             replyingTo: "Abraham Marco Suryadi",
@@ -60,7 +60,7 @@ const data = {
         parent: 0,
         id: 2,
         content:
-          "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+          "Wahhhh, ini mah lebih cepat dari kereta cepat Whoosh! Pengirimannya cepat dan sesuai!",
         createdAt: "2 weeks ago",
         score: 5,
         user: {
@@ -75,7 +75,7 @@ const data = {
             parent: 2,
             id: 1,
             content:
-              "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+              "Lebih cepat dari pesawat Jett dan Roket kalau ini mah",
             createdAt: "1 week ago",
             score: 4,
             replyingTo: "Blandina Siti",
@@ -91,7 +91,7 @@ const data = {
             parent: 2,
             id: 1,
             content:
-              "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+              "Betul banget kak, pengirimannya diluar prediksi BMKG",
             createdAt: "2 days ago",
             score: 2,
             replyingTo: "Rizal Fanani",
