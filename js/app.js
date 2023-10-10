@@ -115,50 +115,12 @@ const data = {
   }
   
   const addComment = async(username, body, parentId, replyTo = undefined) => {
-    // let commentParent =
-    //   parentId === 0
-    //     ? data.comments
-    //     : data.comments.filter((c) => c.id == parentId)[0].replies;
-    // let newComment = {
-    //   parent: parentId,
-    //   id:
-    //     commentParent.length == 0
-    //       ? 1
-    //       : commentParent[commentParent.length - 1].id + 1,
-    //   content: body,
-    //   createdAt: "Now",
-    //   replyingTo: replyTo,
-    //   score: 0,
-    //   replies: parent == 0 ? [] : undefined,
-    //   user: {
-    //     ...data.currentUser,
-    //     username,
-    //   },
-    // };
-    // commentParent.push(newComment);
-    // const result = await getData();
-    // initComments(result.results);
-    // fetch(`{$BASE_URL}/comment`, {
-      //   method: 'POST',
-      //   headers: "application/json",
-    //   body: JSON.stringify({
-      //     username: username,
-      //     parentId: parentId,
-      //     content: body,
-    //     score : 0
-    //   }),
-    // })
-    // .then(response => response.json())
-    // .then (async(response) => {
-    // }).catch(error => {
-      //   console.error(error);
-      // });
-      const response = await sendComment({
-        username: username,
-        parent: parentId,
-        content: body,
+    await sendComment({
+      username: username,
+      parent: parentId,
+      content: body,
       score: 0,
-    })
+    });
     data.currentUser = {
       ...data.currentUser,
       username,
@@ -166,16 +128,18 @@ const data = {
     const result = await getData();
     initComments(result.results);
   };
-  const deleteComment = (commentObject) => {
-    if (commentObject.parent == 0) {
-      data.comments = data.comments.filter((e) => e != commentObject);
-    } else {
-      data.comments.filter((e) => e.id === commentObject.parent)[0].replies =
-        data.comments
-          .filter((e) => e.id === commentObject.parent)[0]
-          .replies.filter((e) => e != commentObject);
-    }
-    initComments();
+  const deleteComment = async(commentObject) => {
+    // if (commentObject.parent == 0) {
+    //   data.comments = data.comments.filter((e) => e != commentObject);
+    // } else {
+    //   data.comments.filter((e) => e.id === commentObject.parent)[0].replies =
+    //     data.comments
+    //       .filter((e) => e.id === commentObject.parent)[0]
+    //       .replies.filter((e) => e != commentObject);
+    // }
+    await dropComment(commentObject.id);
+    const result = await getData();
+    initComments(result.results);
   };
   
   const promptDel = (commentObject) => {
@@ -210,9 +174,8 @@ const data = {
   const createCommentNode = (commentObject) => {
     const commentTemplate = document.querySelector(".comment-template");
     var commentNode = commentTemplate.content.cloneNode(true);
-    commentNode.querySelector(".usr-name").textContent =
-      commentObject.username;
-    commentNode.querySelector(".usr-img").src = commentObject.image
+    commentNode.querySelector(".usr-name").textContent = commentObject.username;
+    commentNode.querySelector(".usr-img").src = `/images/${commentObject.image}`;
     commentNode.querySelector(".score-number").textContent = commentObject.score;
     commentNode.querySelector(".cmnt-at").textContent = commentObject.createdAt;
     commentNode.querySelector(".c-body").textContent = commentObject.content;
@@ -263,7 +226,7 @@ async function initComments(
   ) {
       parent.innerHTML = "";
       commentList.forEach((element) => {
-        var parentId = element.parent == 0 ? element.id : element.parent;
+        var parentId = element.parent ? element.parent : element.id;
         const comment_node = createCommentNode(element);
         if (element.replies && element.replies.length > 0) {
           initComments(element.replies, comment_node.querySelector(".replies"));
@@ -301,6 +264,17 @@ function sendComment(body) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
+  })
+  .then(response => response.json())
+  .catch((error) => error);
+}
+
+function dropComment(id) {
+  return fetch(`${BASE_URL}/comment/${id}`,{
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json",
+    },
   })
   .then(response => response.json())
   .catch((error) => error);

@@ -1628,7 +1628,7 @@ button:hover{
 		width: auto;
 	}
 
-	.reply-input{
+	/* .reply-input{
 		grid-template-areas: 
 			"input input input"
 			"avatar ... button"
@@ -1636,7 +1636,7 @@ button:hover{
 		grid-template-rows: auto min-content;
 		align-items: center;
 		gap: .5rem;
-	}
+	} */
 
 	.reply-input img{
 		height: 2rem;
