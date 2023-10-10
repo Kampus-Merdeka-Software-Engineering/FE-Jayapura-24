@@ -1,6 +1,7 @@
 const bar = document.getElementById('bar');
 const close = document.getElementById('close');
 const nav = document.getElementById('navbar');
+const BASE_URL = 'https://be-jayapura-24-production.up.railway.app'
 
 if (bar) {
         bar.addEventListener('click', () => {
@@ -20,91 +21,91 @@ const data = {
         png: "./images/avatars/6.png",
         webp: "./images/avatars/6.webp",
       },
-      username: ('.username'),
+      username: "Fikri",
     },
     comments: [
-      {
-        parent: 0,
-        id: 1,
-        content:
-          "Saya kira hanya iming-iming saja pengirimannya akan cepat, ternyata beneran secepat itu. Terimakasih Logist.",
-        createdAt: "1 month ago",
-        score: 12,
-        user: {
-          image: {
-            png: "./images/avatars/5.png",
-            webp: "./images/avatars/5.webp",
-          },
-          username: "Abraham Marco Suryadi",
-        },
-        replies: [
-          {
-            parent: 2,
-            id: 1,
-            content:
-              "Benar!. saya pikir juga begitu, malah ini lebih cepat dari estimasi!",
-            createdAt: "3 week ago",
-            score: 4,
-            replyingTo: "Abraham Marco Suryadi",
-            user: {
-              image: {
-                png: "./images/avatars/3.png",
-                webp: "./images/avatars/3.webp",
-              },
-              username: "Ines Gayatri",
-            },
-          },
-        ],
-      },
-      {
-        parent: 0,
-        id: 2,
-        content:
-          "Wahhhh, ini mah lebih cepat dari kereta cepat Whoosh! Pengirimannya cepat dan sesuai!",
-        createdAt: "2 weeks ago",
-        score: 5,
-        user: {
-          image: {
-            png: "./images/avatars/4.png",
-            webp: "./images/avatars/4.webp",
-          },
-          username: "Blandina Siti",
-        },
-        replies: [
-          {
-            parent: 2,
-            id: 1,
-            content:
-              "Lebih cepat dari pesawat Jett dan Roket kalau ini mah",
-            createdAt: "1 week ago",
-            score: 4,
-            replyingTo: "Blandina Siti",
-            user: {
-              image: {
-                png: "./images/avatars/1.png",
-                webp: "./images/avatars/1.webp",
-              },
-              username: "Rizal Fanani",
-            },
-          },
-          {
-            parent: 2,
-            id: 1,
-            content:
-              "Betul banget kak, pengirimannya diluar prediksi BMKG",
-            createdAt: "2 days ago",
-            score: 2,
-            replyingTo: "Rizal Fanani",
-            user: {
-              image: {
-                png: "./images/avatars/2.png",
-                webp: "./images/avatars/2.webp",
-              },
-              username: "Vina Fariska",
-            },
-          },
-        ],
-      },
+      // {
+      //   parent: 0,
+      //   id: 1,
+      //   content:
+      //     "Saya kira hanya iming-iming saja pengirimannya akan cepat, ternyata beneran secepat itu. Terimakasih Logist.",
+      //   createdAt: "1 month ago",
+      //   score: 12,
+      //   user: {
+      //     image: {
+      //       png: "./images/avatars/5.png",
+      //       webp: "./images/avatars/5.webp",
+      //     },
+      //     username: "Abraham Marco Suryadi",
+      //   },
+      //   replies: [
+      //     {
+      //       parent: 2,
+      //       id: 1,
+      //       content:
+      //         "Benar!. saya pikir juga begitu, malah ini lebih cepat dari estimasi!",
+      //       createdAt: "3 week ago",
+      //       score: 4,
+      //       replyingTo: "Abraham Marco Suryadi",
+      //       user: {
+      //         image: {
+      //           png: "./images/avatars/3.png",
+      //           webp: "./images/avatars/3.webp",
+      //         },
+      //         username: "Ines Gayatri",
+      //       },
+      //     },
+      //   ],
+      // },
+      // {
+      //   parent: 0,
+      //   id: 2,
+      //   content:
+      //     "Wahhhh, ini mah lebih cepat dari kereta cepat Whoosh! Pengirimannya cepat dan sesuai!",
+      //   createdAt: "2 weeks ago",
+      //   score: 5,
+      //   user: {
+      //     image: {
+      //       png: "./images/avatars/4.png",
+      //       webp: "./images/avatars/4.webp",
+      //     },
+      //     username: "Blandina Siti",
+      //   },
+      //   replies: [
+      //     {
+      //       parent: 2,
+      //       id: 1,
+      //       content:
+      //         "Lebih cepat dari pesawat Jett dan Roket kalau ini mah",
+      //       createdAt: "1 week ago",
+      //       score: 4,
+      //       replyingTo: "Blandina Siti",
+      //       user: {
+      //         image: {
+      //           png: "./images/avatars/1.png",
+      //           webp: "./images/avatars/1.webp",
+      //         },
+      //         username: "Rizal Fanani",
+      //       },
+      //     },
+      //     {
+      //       parent: 2,
+      //       id: 1,
+      //       content:
+      //         "Betul banget kak, pengirimannya diluar prediksi BMKG",
+      //       createdAt: "2 days ago",
+      //       score: 2,
+      //       replyingTo: "Rizal Fanani",
+      //       user: {
+      //         image: {
+      //           png: "./images/avatars/2.png",
+      //           webp: "./images/avatars/2.webp",
+      //         },
+      //         username: "Vina Fariska",
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   };
   function appendFrag(frag, parent) {
@@ -113,26 +114,57 @@ const data = {
     return children[1];
   }
   
-  const addComment = (body, parentId, replyTo = undefined) => {
-    let commentParent =
-      parentId === 0
-        ? data.comments
-        : data.comments.filter((c) => c.id == parentId)[0].replies;
-    let newComment = {
-      parent: parentId,
-      id:
-        commentParent.length == 0
-          ? 1
-          : commentParent[commentParent.length - 1].id + 1,
-      content: body,
-      createdAt: "Now",
-      replyingTo: replyTo,
+  const addComment = async(username, body, parentId, replyTo = undefined) => {
+    // let commentParent =
+    //   parentId === 0
+    //     ? data.comments
+    //     : data.comments.filter((c) => c.id == parentId)[0].replies;
+    // let newComment = {
+    //   parent: parentId,
+    //   id:
+    //     commentParent.length == 0
+    //       ? 1
+    //       : commentParent[commentParent.length - 1].id + 1,
+    //   content: body,
+    //   createdAt: "Now",
+    //   replyingTo: replyTo,
+    //   score: 0,
+    //   replies: parent == 0 ? [] : undefined,
+    //   user: {
+    //     ...data.currentUser,
+    //     username,
+    //   },
+    // };
+    // commentParent.push(newComment);
+    // const result = await getData();
+    // initComments(result.results);
+    // fetch(`{$BASE_URL}/comment`, {
+      //   method: 'POST',
+      //   headers: "application/json",
+    //   body: JSON.stringify({
+      //     username: username,
+      //     parentId: parentId,
+      //     content: body,
+    //     score : 0
+    //   }),
+    // })
+    // .then(response => response.json())
+    // .then (async(response) => {
+    // }).catch(error => {
+      //   console.error(error);
+      // });
+      const response = await sendComment({
+        username: username,
+        parent: parentId,
+        content: body,
       score: 0,
-      replies: parent == 0 ? [] : undefined,
-      user: data.currentUser,
+    })
+    data.currentUser = {
+      ...data.currentUser,
+      username,
     };
-    commentParent.push(newComment);
-    initComments();
+    const result = await getData();
+    initComments(result.results);
   };
   const deleteComment = (commentObject) => {
     if (commentObject.parent == 0) {
@@ -169,8 +201,9 @@ const data = {
     const addedInput = appendFrag(inputNode, parent);
     addedInput.querySelector(".bu-primary").addEventListener("click", () => {
       let commentBody = addedInput.querySelector(".cmnt-input").value;
-      if (commentBody.length == 0) return;
-      addComment(commentBody, parentId, replyTo);
+      const username = addedInput.querySelector("#username").value;
+      if (commentBody.length == 0 || username.length === 0) return;
+      addComment(username, commentBody, parentId, replyTo);
     });
   };
   
@@ -178,8 +211,8 @@ const data = {
     const commentTemplate = document.querySelector(".comment-template");
     var commentNode = commentTemplate.content.cloneNode(true);
     commentNode.querySelector(".usr-name").textContent =
-      commentObject.user.username;
-    commentNode.querySelector(".usr-img").src = commentObject.user.image.webp;
+      commentObject.username;
+    commentNode.querySelector(".usr-img").src = commentObject.image
     commentNode.querySelector(".score-number").textContent = commentObject.score;
     commentNode.querySelector(".cmnt-at").textContent = commentObject.createdAt;
     commentNode.querySelector(".c-body").textContent = commentObject.content;
@@ -197,7 +230,7 @@ const data = {
       if (commentObject.score < 0) commentObject.score = 0;
       initComments();
     });
-    if (commentObject.user.username == data.currentUser.username) {
+    if (commentObject.username == data.currentUser.username) {
       commentNode.querySelector(".comment").classList.add("this-user");
       commentNode.querySelector(".delete").addEventListener("click", () => {
         promptDel(commentObject);
@@ -224,27 +257,51 @@ const data = {
     });
   };
   
-  function initComments(
+async function initComments(
     commentList = data.comments,
     parent = document.querySelector(".comments-wrp")
   ) {
-    parent.innerHTML = "";
-    commentList.forEach((element) => {
-      var parentId = element.parent == 0 ? element.id : element.parent;
-      const comment_node = createCommentNode(element);
-      if (element.replies && element.replies.length > 0) {
-        initComments(element.replies, comment_node.querySelector(".replies"));
-      }
-      appendComment(parent, comment_node, parentId);
-    });
+      parent.innerHTML = "";
+      commentList.forEach((element) => {
+        var parentId = element.parent == 0 ? element.id : element.parent;
+        const comment_node = createCommentNode(element);
+        if (element.replies && element.replies.length > 0) {
+          initComments(element.replies, comment_node.querySelector(".replies"));
+        }
+        appendComment(parent, comment_node, parentId);
+      });
   }
   
-  initComments();
+window.addEventListener("DOMContentLoaded", async (event) => {
+  const response = await getData();
+  console.log(response)
+  initComments(response.results);
+});
   const cmntInput = document.querySelector(".reply-input");
   cmntInput.querySelector(".bu-primary").addEventListener("click", () => {
     let commentBody = cmntInput.querySelector(".cmnt-input").value;
-    if (commentBody.length == 0) return;
-    addComment(commentBody, 0);
+    const username = cmntInput.querySelector("#username").value;
+    if (commentBody.length == 0 || username.length === 0) return;
+    addComment(username, commentBody, 0);
     cmntInput.querySelector(".cmnt-input").value = "";
+    cmntInput.querySelector("#username").value = "";
   });
   
+
+function getData() {
+  return fetch(`${BASE_URL}/comment`)
+  .then(response => response.json())
+  .catch((error) => error);
+}
+
+function sendComment(body) {
+  return fetch(`${BASE_URL}/comment`, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+  .then(response => response.json())
+  .catch((error) => error);
+}
